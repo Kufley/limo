@@ -1,0 +1,4 @@
+.limoking-preview{ max-height: 150px; max-width: 200px; margin-bottom: 10px; margin-top: 10px; margin: 2px; }
+.form-field input.limoking-half{ width: 50%; float: left; }
+.form-field input[type="button"]{ width: auto; float: left; margin-left: 10px; margin-top: 3px;}
+.limoking-textarea{ height: 130px; }

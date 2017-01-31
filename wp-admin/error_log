@@ -1,0 +1,1 @@
+[01-Dec-2016 18:28:01 UTC] PHP Fatal error:  Call to undefined function limoking_escape_content() in /home/lovelimo/public_html/wp-content/plugins/gdlr-function/twitter-widget.php on line 89

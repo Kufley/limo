@@ -1,0 +1,11 @@
+[02-Jun-2016 02:50:50 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/lovelimo/public_html/wp-content/themes/limoking-v1-05/include/function/gdlr-page-item.php on line 123
+[02-Jun-2016 02:50:50 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/lovelimo/public_html/wp-content/themes/limoking-v1-05/include/function/gdlr-page-item.php on line 123
+[02-Jun-2016 02:52:00 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/lovelimo/public_html/wp-content/themes/limoking-v1-05/include/function/gdlr-page-item.php on line 123
+[02-Jun-2016 02:52:00 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/lovelimo/public_html/wp-content/themes/limoking-v1-05/include/function/gdlr-page-item.php on line 123
+[26-Jan-2017 00:14:25 UTC] WordPress database error Lost connection to MySQL server during query for query SELECT SQL_CALC_FOUND_ROWS  wp_posts.ID FROM wp_posts  WHERE 1=1  AND wp_posts.post_type = 'post' AND (wp_posts.post_status = 'publish')  ORDER BY wp_posts.post_date DESC LIMIT 0, 10 made by require('wp-blog-header.php'), wp, WP->main, WP->query_posts, WP_Query->query, WP_Query->get_posts
+[26-Jan-2017 00:14:25 UTC] WordPress database error Lost connection to MySQL server during query for query 
+		SELECT ID, post_name, post_parent, post_type
+		FROM wp_posts
+		WHERE post_name IN ('blog','wp-admin','setup-config-php')
+		AND post_type IN ('page','attachment')
+	 made by require('wp-blog-header.php'), wp, WP->main, WP->parse_request, get_page_by_path
