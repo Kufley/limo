@@ -103,18 +103,20 @@
 				<?php 
 					// logo for other header style
 					if( !($header_style == 'header-style-3' || $header_style == 'header-style-2') ){
-						limoking_get_logo(); 
-						
+						limoking_get_logo();
+
 						echo '<div class="limoking-logo-right-wrapper" >';
 						if( !empty($theme_option['logo-right-text']) ){
 							echo '<div class="limoking-logo-right-text">' . limoking_text_filter($theme_option['logo-right-text']) . '</div>';
 						}
+
 						get_template_part( 'header', 'nav' );
 						echo '</div>';
-						
+
 					// navigation
 					}else{
 						get_template_part( 'header', 'nav' );
+//						echo  '<a href="reservations" target="_blank" class="btn btn-primary" title="Book Now">Book Now</a>';
 					}
 				?>
 				<div class="clear"></div>

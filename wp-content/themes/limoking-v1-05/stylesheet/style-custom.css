@@ -1,6 +1,6 @@
 html.ltie9 body, body{ min-width: 1140px; } .container{ max-width: 1140px; } .limoking-caption-wrapper .limoking-caption-inner{ max-width: 1140px; }
 .body-wrapper.limoking-boxed-style{ max-width: 1220px; overflow: hidden; } .body-wrapper.limoking-boxed-style .limoking-header-wrapper{ max-width: 1220px; margin: 0px auto; }
-.limoking-logo-inner{ max-width: 500px; }
+.limoking-logo-inner{ max-width: 205px; }
 .limoking-logo{ margin-top: 50px; }
 .limoking-logo{ margin-bottom: 45px; }
 .limoking-logo-right-text{ margin-top: 10px; }
@@ -8,7 +8,7 @@ html.ltie9 body, body{ min-width: 1140px; } .container{ max-width: 1140px; } .li
 .limoking-navigation-wrapper .limoking-main-menu > li > a{ padding-bottom: 45px; }
 .top-social-wrapper .social-icon a{ color: #888888; }
 h1, h2, h3, h4, h5, h6, .limoking-title-font{ font-family: "Montserrat"; }
-body, input, textarea, select, .limoking-content-font, .limoking-car-contact-form .wpcf7 input[type="submit"]{ font-family: "Hind"; }
+body, input, textarea, select, .limoking-content-font, .wpcf7 input[type="submit"]{ font-family: "Hind"; }
 .limoking-info-font, .limoking-plain .about-us-caption, .limoking-normal .about-us-caption, .limoking-button, input[type="button"], input[type="submit"]{ font-family: "Merriweather"; }
 .limoking-testimonial-item.modern-style .testimonial-item-inner:before{ font-family: "Mystery Quest"; }
 .limoking-navigation{ font-family: "Hind"; }
@@ -24,11 +24,10 @@ h6{ font-size: 16px; }
 .top-navigation-wrapper{ background-color: #f3f3f3; }
 .top-navigation-wrapper{ color: #ffffff; }
 .top-navigation-wrapper a{ color: #f2f2f2; }
-.limoking-header-inner, .limoking-header-wrapper.header-style-3-wrapper, .limoking-header-wrapper.header-style-2-wrapper{ background-color: #232323; }.limoking-header-wrapper.header-style-5-wrapper .limoking-header-inner{ background-color: rgba(35, 35, 35, 0.75); }@media only screen and (max-width: 1100px) { .limoking-header-wrapper.header-style-5-wrapper .limoking-header-inner{ background-color: #232323; } }
+.limoking-header-inner, .limoking-header-wrapper.header-style-3-wrapper, .limoking-header-wrapper.header-style-2-wrapper{ background-color: #232323; }.limoking-header-wrapper.header-style-5-wrapper .limoking-header-inner{ background-color: rgba(35, 35, 35, 0.75); }@media only screen and (max-width: 767px) { .limoking-header-wrapper.header-style-5-wrapper .limoking-header-inner{ background-color: #232323; } }
 .limoking-main-menu > li > a, .limoking-cart-item-count{ color: #a2a2a2; }
 .limoking-header-wrapper.header-style-3-wrapper .limoking-header-inner, .limoking-header-wrapper.header-style-2-wrapper .limoking-header-inner{ background-color: #232323; background-color: rgba(35, 35, 35, 0.75); }
 .limoking-main-menu > li:hover > a, .limoking-main-menu > li.current-menu-item > a, .limoking-main-menu > li.current-menu-ancestor > a{ color: #ffffff; opacity: 1; filter: alpha(opacity=100); }
-#limoking-navigation-gimmick{ border-bottom-color: #1eacc7; }
 .limoking-top-woocommerce-inner, .limoking-menu-search{ background: #2b2b2b; background: rgba(43, 43, 43, 0.8); }
 .limoking-top-woocommerce, .limoking-top-woocommerce-inner > a, .limoking-menu-search input[type="text"]{ color: #ffffff; }
 .limoking-main-menu > .limoking-normal-menu .sub-menu, .limoking-main-menu > .limoking-mega-menu .sf-mega{ border-top-color: #1c1c1c; }
@@ -151,10 +150,10 @@ table.style-2 tr:nth-child(even){ color: #949494; }
 .portfolio-title a{ color: #545454; }
 .portfolio-title a:hover{ color: #1eacc7; }
 .portfolio-info, .portfolio-info a{ color: #a2a2a2; }
-.limoking-pagination .page-numbers, .woocommerce nav.woocommerce-pagination ul li a, .woocommerce nav.woocommerce-pagination ul li span{ background-color: #ebebeb; }
-.limoking-pagination .page-numbers, .woocommerce nav.woocommerce-pagination ul li a, .woocommerce nav.woocommerce-pagination ul li span{ color: #979797; }
-.limoking-pagination .page-numbers:hover, .limoking-pagination .page-numbers.current, .woocommerce nav.woocommerce-pagination ul li a:hover, .woocommerce nav.woocommerce-pagination ul li span.current{ background-color: #1eacc7; }
-.limoking-pagination .page-numbers:hover, .limoking-pagination .page-numbers.current, .woocommerce nav.woocommerce-pagination ul li a:hover, .woocommerce nav.woocommerce-pagination ul li span.current{ color: #ffffff; }
+.limoking-pagination .page-numbers{ background-color: #ebebeb; }
+.limoking-pagination .page-numbers{ color: #979797; }
+.limoking-pagination .page-numbers:hover, .limoking-pagination .page-numbers.current{ background-color: #1eacc7; }
+.limoking-pagination .page-numbers:hover, .limoking-pagination .page-numbers.current{ color: #ffffff; }
 .limoking-personnel-item.modern-style .personnel-info{ background-color: #1eacc7; }
 .limoking-personnel-item.modern-style .personnel-author, .limoking-personnel-item.modern-style .personnel-position{ color: #ffffff; }
 .limoking-personnel-item .personnel-item-inner{ background-color: #f5f5f5; }
@@ -247,10 +246,10 @@ html .woocommerce .quantity .minus, html .woocommerce #content .quantity .minus,
 .limoking-skin-dark-testimonial .limoking-skin-box, .limoking-skin-dark-testimonial .limoking-column-service-item .limoking-skin-box{ background-color: #2b2b2b; }
 .limoking-skin-dark-testimonial *, .limoking-skin-dark-testimonial .limoking-skin-border{ border-color: #ffffff; }
 .limoking-skin-dark-testimonial .limoking-button, .limoking-skin-dark-testimonial .limoking-button:hover, .limoking-skin-dark-testimonial input[type="button"], .limoking-skin-dark-testimonial input[type="submit"]{ color: #ffffff; background-color: #ffffff;  }
-.limoking-skin-light-grey, .limoking-skin-light-grey .limoking-skin-content{ color: #0c0c0c; }
+.limoking-skin-light-grey, .limoking-skin-light-grey .limoking-skin-content{ color: #999999; }
 .limoking-skin-light-grey i, .limoking-skin-light-grey .limoking-flex-prev, .limoking-skin-light-grey .limoking-flex-next{ color: #e0e0e0; }
-.limoking-skin-light-grey h1, .limoking-skin-light-grey h2, .limoking-skin-light-grey h3, .limoking-skin-light-grey h4, .limoking-skin-light-grey h5, .limoking-skin-light-grey h6, .limoking-skin-light-grey .limoking-skin-title, .limoking-skin-light-grey .limoking-skin-title a{ color: #000000; }
-.limoking-skin-light-grey .limoking-skin-title a:hover{ color: #686868; }
+.limoking-skin-light-grey h1, .limoking-skin-light-grey h2, .limoking-skin-light-grey h3, .limoking-skin-light-grey h4, .limoking-skin-light-grey h5, .limoking-skin-light-grey h6, .limoking-skin-light-grey .limoking-skin-title, .limoking-skin-light-grey .limoking-skin-title a{ color: #eb4c4c; }
+.limoking-skin-light-grey .limoking-skin-title a:hover{ color: #eb4c4c; }
 .limoking-skin-light-grey .limoking-skin-info, .limoking-skin-light-grey .limoking-skin-info a, .limoking-skin-light-grey .limoking-skin-info a:hover{ color: #828282; }
 .limoking-skin-light-grey a, .limoking-skin-light-grey .limoking-skin-link, .limoking-skin-light-grey .limoking-skin-link-color{ color: #282828; }
 .limoking-skin-light-grey a:hover, .limoking-skin-light-grey .limoking-skin-link:hover{ color: #848484; }

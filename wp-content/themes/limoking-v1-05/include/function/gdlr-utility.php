@@ -1,11 +1,11 @@
 <?php
-	/*	
+	/*
 	*	Goodlayers Framework File
 	*	---------------------------------------------------------------------
 	*	This file contains utility function in the theme
 	*	---------------------------------------------------------------------
 	*/
-	
+
 	// escape string
 	if( !function_exists('limoking_escape_string') ){
 		function limoking_escape_string($string){
@@ -41,19 +41,19 @@
 			return $string;
 		}
 	}
-	
+
 	// escape content
 	if( !function_exists('limoking_escape_content') ){
 		function limoking_escape_content($string){
 			return apply_filters('limoking_escape_content', $string);
 		}
 	}
-	
+
 	// get sidebar id from name
 	if( !function_exists('limoking_get_sidebar_id') ){
 		function limoking_get_sidebar_id($sidebar_name){
 			global $wp_registered_sidebars;
-			
+
 			if( !empty($wp_registered_sidebars) && is_array($wp_registered_sidebars) ){
 				foreach ( $wp_registered_sidebars as $key => $value ) {
 					if($value['name'] == $sidebar_name) return $key;
@@ -61,33 +61,33 @@
 			}
 			return '';
 		}
-	}	
-	
-	// page builder content/text filer to execute the shortcode	
+	}
+
+	// page builder content/text filer to execute the shortcode
 	if( !function_exists('limoking_content_filter') ){
 		add_filter( 'limoking_the_content', 'wptexturize'        ); add_filter( 'limoking_the_content', 'convert_smilies'    );
 		add_filter( 'limoking_the_content', 'convert_chars'      ); add_filter( 'limoking_the_content', 'wpautop'            );
-		add_filter( 'limoking_the_content', 'shortcode_unautop'  ); add_filter( 'limoking_the_content', 'prepend_attachment' );	
+		add_filter( 'limoking_the_content', 'shortcode_unautop'  ); add_filter( 'limoking_the_content', 'prepend_attachment' );
 		add_filter( 'limoking_the_content', 'do_shortcode', 11 	 );
 		function limoking_content_filter( $content, $main_content = false ){
 			if($main_content) return str_replace( ']]>', ']]&gt;', apply_filters('the_content', $content) );
 			$content = str_replace("<br />", "\n", $content);
 			return apply_filters('limoking_the_content', $content);
-		}		
+		}
 	}
 	if( !function_exists('limoking_text_filter') ){
 		add_filter( 'limoking_text_filter', 'do_shortcode' );
 		function limoking_text_filter( $text ){
 			return apply_filters('limoking_text_filter', $text);
 		}
-	}	
-	
+	}
+
 	// filter shortcode out if the plugin is not activated
 	if( !function_exists('limoking_enable_shortcode_filter') ){
 		add_filter( 'widget_text', 'limoking_enable_shortcode_filter' );
-		add_filter( 'the_content', 'limoking_enable_shortcode_filter' ); 
-		add_filter( 'limoking_text_filter', 'limoking_enable_shortcode_filter' ); 	
-		add_filter( 'limoking_the_content', 'limoking_enable_shortcode_filter' ); 	
+		add_filter( 'the_content', 'limoking_enable_shortcode_filter' );
+		add_filter( 'limoking_text_filter', 'limoking_enable_shortcode_filter' );
+		add_filter( 'limoking_the_content', 'limoking_enable_shortcode_filter' );
 		function limoking_enable_shortcode_filter( $text ){
 			if( !function_exists('gdlr_add_tinymce_button') ){
 				$text = preg_replace('#\[gdlr_[^\]]+]#', '', $text);
@@ -105,13 +105,7 @@
 <div class="limoking-logo">
 	<div class="limoking-logo-inner">
 		<a href="<?php echo esc_url(home_url('/')); ?>" >
-			<?php
-				if(empty($theme_option['logo-id']) || !wp_attachment_is_image($theme_option['logo-id'])){
-					echo limoking_get_image(get_template_directory_uri() . '/images/logo.png');
-				}else{
-					echo limoking_get_image($theme_option['logo-id']);
-				}
-			?>
+			<?php echo limoking_get_image(get_template_directory_uri() . '/images/logo.png');?>
 		</a>
 	</div>
 	<?php
@@ -130,22 +124,22 @@
 		}
 	?>
 </div>
-<?php			
+<?php
 		}
 	}
-	
+
 	// use for generating the option from admin panel
 	if( !function_exists('limoking_check_option_data_type') ){
 		function limoking_check_option_data_type( $value, $data_type = 'color' ){
 			if( $data_type == 'color' || $data_type == 'rgba' ){
-				return (strpos($value, '#') === false)? '#' . $value: $value; 
+				return (strpos($value, '#') === false)? '#' . $value: $value;
 			}else if( $data_type == 'text' ){
 				return $value;
 			}else if( $data_type == 'pixel' ){
 				return (is_numeric($value))? $value . 'px': $value;
 			}else if( $data_type == 'upload' ){
 				if(is_numeric($value)){
-					$image_src = wp_get_attachment_image_src($value, 'full');	
+					$image_src = wp_get_attachment_image_src($value, 'full');
 					return (!empty($image_src))? $image_src[0]: false;
 				}else{
 					return $value;
@@ -158,9 +152,9 @@
 			}else if( $data_type == 'percent' ){
 				return (is_numeric($value))? $value . '%': $value;
 			}
-		
+
 		}
-	}	
+	}
 	if( !function_exists('limoking_convert_rgba') ){
 		function limoking_convert_rgba($color){
 			$color = str_replace('#', '', $color);
@@ -176,12 +170,12 @@
 			return $r . ', ' . $g . ', ' . $b;
 		}
 	}
-	
+
 	// use for layouting the sidebar size
 	if( !function_exists('limoking_get_sidebar_class') ){
 		function limoking_get_sidebar_class( $sidebar = array() ){
 			global $theme_option;
-			
+
 			if( $sidebar['type'] == 'no-sidebar' ){
 				return array_merge($sidebar, array('right'=>'', 'outer'=>'twelve', 'left'=>'twelve', 'center'=>'twelve'));
 			}else if( $sidebar['type'] == 'both-sidebar' ){
@@ -190,8 +184,8 @@
 				}else if( $theme_option['both-sidebar-size'] == 4 ){
 					return array_merge($sidebar, array('right'=>'four', 'outer'=>'eight', 'left'=>'six', 'center'=>'six'));
 				}
-			}else{ 
-			
+			}else{
+
 				// determine the left/right sidebar size
 				$size = ''; $center = '';
 				switch ($theme_option['sidebar-size']){
@@ -212,14 +206,14 @@
 					$sidebar['outer'] = $center;
 					$sidebar['right'] = $size;
 					$sidebar['center'] = 'twelve';
-					return $sidebar;			
+					return $sidebar;
 				}
 			}
 		}
 	}
 
 	// retrieve all posts as a list
-	if( !function_exists('limoking_get_post_list') ){	
+	if( !function_exists('limoking_get_post_list') ){
 		function limoking_get_post_list( $post_type ){
 			$post_list = get_posts(array('post_type' => $post_type, 'numberposts'=>1000));
 
@@ -229,13 +223,13 @@
 					$ret[$post->post_name] = $post->post_title;
 				}
 			}
-				
+
 			return $ret;
-		}	
-	}	
-	
+		}
+	}
+
 	// retrieve all categories from each post type
-	if( !function_exists('limoking_get_term_list') ){	
+	if( !function_exists('limoking_get_term_list') ){
 		function limoking_get_term_list( $taxonomy, $parent='' ){
 			$term_list = get_categories( array('taxonomy'=>$taxonomy, 'hide_empty'=>0, 'parent'=>$parent) );
 
@@ -247,34 +241,34 @@
 					}
 				}
 			}
-				
+
 			return $ret;
-		}	
-	}	
-	
+		}
+	}
+
 	// string to css class name
-	if( !function_exists('limoking_string_to_class') ){	
+	if( !function_exists('limoking_string_to_class') ){
 		function limoking_string_to_class($string){
 			$class = preg_replace('#[^\w\s]#','',strtolower(strip_tags($string)));
 			$class = preg_replace('#\s+#', '-', trim($class));
 			return 'limoking-skin-' . $class;
 		}
 	}
-	
+
 	// calculate the size as a number ex "1/2" = 0.5
-	if( !function_exists('limoking_item_size_to_num') ){	
+	if( !function_exists('limoking_item_size_to_num') ){
 		function limoking_item_size_to_num( $size ){
 			if( preg_match('/^(\d+)\/(\d+)$/', $size, $size_array) )
 			return $size_array[1] / $size_array[2];
 			return 1;
-		}	
-	}		
-	
+		}
+	}
+
 	// get skin list
-	if( !function_exists('limoking_get_skin_list') ){	
+	if( !function_exists('limoking_get_skin_list') ){
 		function limoking_get_skin_list(){
 			global $theme_option;
-		
+
 			$skin_list = array('no-skin'=>esc_html__('No Skin', 'limoking'));
 			if( !empty($theme_option['skin-settings']) ){
 				$skins = json_decode($theme_option['skin-settings'], true);
@@ -287,12 +281,12 @@
 			return $skin_list;
 		}
 	}
-	
+
 	// create pagination link
-	if( !function_exists('limoking_get_pagination') ){	
+	if( !function_exists('limoking_get_pagination') ){
 		function limoking_get_pagination($max_num_page, $current_page, $format = 'paged'){
 			if( $max_num_page <= 1 ) return '';
-		
+
 			$big = 999999999; // need an unlikely integer
 			return 	'<div class="limoking-pagination">' . paginate_links(array(
 				'base' => str_replace($big, '%#%', esc_url(get_pagenum_link($big))),
@@ -302,16 +296,16 @@
 				'prev_text'=> esc_html__('&lsaquo; Previous', 'limoking'),
 				'next_text'=> esc_html__('Next &rsaquo;', 'limoking')
 			)) . '</div>';
-		}	
-	}		
-	if( !function_exists('limoking_get_ajax_pagination') ){	
+		}
+	}
+	if( !function_exists('limoking_get_ajax_pagination') ){
 		function limoking_get_ajax_pagination($max_num_page, $current_page){
 			if( $max_num_page <= 1 ) return '';
-		
+
 			$ret  = '<div class="limoking-pagination limoking-ajax">';
-			if($current_page > 1){ 
+			if($current_page > 1){
 				$ret .= '<a class="prev page-numbers" data-paged="' . (intval($current_page) - 1) . '" >';
-				$ret .= esc_html__('&lsaquo; Previous', 'limoking') . '</a> '; 
+				$ret .= esc_html__('&lsaquo; Previous', 'limoking') . '</a> ';
 			}
 			for($i=1; $i<=$max_num_page; $i++){
 				if( $i == $current_page ){
@@ -320,20 +314,20 @@
 					$ret .= '<a class="page-numbers" data-paged="' . $i . '" >' . $i . '</a> ';
 				}
 			}
-			if($current_page < $max_num_page){ 
+			if($current_page < $max_num_page){
 				$ret .= '<a class="next page-numbers" data-paged="' . (intval($current_page) + 1) . '" > ';
-				$ret .= esc_html__('Next &rsaquo;', 'limoking') . '</a> '; 
+				$ret .= esc_html__('Next &rsaquo;', 'limoking') . '</a> ';
 			}
 			$ret .= '</div>';
 			return $ret;
-		}	
-	}	
-	
+		}
+	}
+
 	// convert font awesome class to new version
-	if( !function_exists('limoking_fa_class') ){	
+	if( !function_exists('limoking_fa_class') ){
 		function limoking_fa_class($class){
 			global $theme_option;
-			
+
 			$class = str_replace('icon-', 'fa-', $class);
 			return str_replace('-alt', '-o', $class);
 		}
